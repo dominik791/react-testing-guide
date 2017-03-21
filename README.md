@@ -29,7 +29,7 @@ BDD (Behaviour Driven Development) test framework:
 
 ![Mocha](./images/readme1.png) <br/>
 
-Mocha doesn’t have any built-in assertion library like: Chai, should.js, expect.js etc. Common choice (and ours  ) is Chai. You can use Mocha to run tests with Node environment. But using it with Karma enables you to run tests with different browser engines like Chrome, FF, PhantomJS (web browser without a graphical user interface).
+Mocha doesn’t have any built-in assertion library like: Chai, should.js, expect.js etc. Common choice (and ours :) ) is Chai. You can use Mocha to run tests with Node environment. But using it with Karma enables you to run tests with different browser engines like Chrome, FF, PhantomJS (web browser without a graphical user interface).
 
 ### Chai
 
