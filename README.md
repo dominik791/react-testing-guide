@@ -144,6 +144,48 @@ Of course we can change search pattern to adapt it to our files structure.
 
 The first for one-time test running, second one for let Karma watch files.
 
+<br/>
+
+## Usage - *how to* section
+
+### Mocha + Chai
+
+#### Basic syntax
+
+Mocha gives us the ability to ```describe``` the features. The ```it``` is similar but we can only put the actual assertions / expectations within it
+
+![usage1](./images/usage1.png)
+
+<br/>
+
+
+```describe```s can be nested in order to specify in a more detailed way what are we testing:
+
+![usage2](./images/usage2.png)
+
+<br/>
+
+While working with async code, we should pass callback to ```it()``` and when we're done with tests, invoke the callback:
+
+![usage3](./images/usage3.png)
+
+<br/>
+
+We've got different hooks available:
+
+![usage4](./images/usage4.png)
+
+<br/>
+
+All hooks may be async as well, but we need to pass and invoke callback. So before tests we can populate db or fetch some data that is to be tested.
+
+This will pass:
+
+![usage5](./images/usage5.png)
+
+<br/>
+
+
 <br/> <br/> <br/>
 
 <sub><sup>
@@ -156,5 +198,6 @@ https://scotch.io/tutorials/what-is-phantomjs-and-how-is-it-used<br/>
 https://mochajs.org<br/>
 http://chaijs.com/<br/>
 https://semaphoreci.com/community/tutorials/best-practices-for-spies-stubs-and-mocks-in-sinon-js<br/>
-http://krasimirtsonev.com/blog/article/a-modern-react-starter-pack-based-on-webpack
+http://krasimirtsonev.com/blog/article/a-modern-react-starter-pack-based-on-webpack<br/>
+http://staxmanade.com/2015/11/testing-asyncronous-code-with-mochajs-and-es7-async-await
 </sup></sub>
