@@ -1,26 +1,160 @@
-# React webpack starter template
+# Configuring testing environment (React, Webpack, Karma, Mocha, Chai, Sinon)
 
-The aim of this repository is to provide a template for developing [React](https://facebook.github.io/react/) based applications using ES6 syntax and [webpack](https://webpack.github.io/) as a module bundler.
+The aim of the repository is to provide clear guide of how to configure testing environment with stack listed above and how to use it with React. Repo is based on [react-webpack-starter](https://github.com/krasimir/react-webpack-starter)
 
-## Features
+## Overview - *what is* section
 
-* Bundles [React](https://facebook.github.io/react/) with `jsx` syntax
-* Compiles ES6 (with [Babel](https://babeljs.io/))
-* Linting (with [ESLint](http://eslint.org/))
-* Build with [webpack](https://webpack.github.io/)
-* Test with [Mocha](http://mochajs.org/), [Chai](http://chaijs.com/) and [Sinon](http://sinonjs.org/)
-* Use [Karma](http://karma-runner.github.io/) to run the tests
-* Develop locally with [webpack-dev-server](http://webpack.github.io/docs/webpack-dev-server.html)
+### Karma
 
-## Usage
+Browser test runner. What Karma does is (roughly):
 
-* Download the files and place them in your project directory
-* Run `npm i` to install the dependencies
-* Run `npm run build` to build the project
-* Run `npm run dev` to build the project, start watching files and run the local server
-* Run `npm test` to run the tests once
-* Run `npm run test:ci` to watch the `src` directory for changes and run the tests
+1. starting a small web server to serve "client-side" javascript files to be tested (1)
+2. also serve the "client-side" javascript files with the tests (or Specs, as they're often called) (2)
+3. serve a custom web page that will run javascript code for the tests (3)
+4. start a browser to load this page (4)
+5. report the results of the test to the server (5)
+6. karma can then again report the results to text files, the console, anything your CI server likes, etc...
 
-## MISC
+Looking at each part :
 
-* [A modern React starter pack based on webpack](http://krasimirtsonev.com/blog/article/a-modern-react-starter-pack-based-on-webpack)
+1.  Those files will be your actual js files ; you will tell karma how to load them. If you use requirejs, there is a karma plugin, and some config is needed.
+2.  Those tests can be written in a variety of Javascript testing framework (Jasmine, QUnit, Mocha) ; this is JS code that is run in the browser.
+3. The custom web page will be a bit different for each testing framework ; this is why karma has plugins for different frameworks.
+4.  Karma can launch the page in many browsers (FF, Chrome, or headless browsers like PhantomJs.)
+5.  Reporting to karma is, again, framework-dependant, and dealt with karma plugins.
+
+### Mocha
+
+BDD (Behaviour Driven Development) test framework:
+
+![Mocha](./images/readme1.png) <br/>
+
+Mocha doesn’t have any built-in assertion library like: Chai, should.js, expect.js etc. Common choice (and ours  ) is Chai. You can use Mocha to run tests with Node environment. But using it with Karma enables you to run tests with different browser engines like Chrome, FF, PhantomJS (web browser without a graphical user interface).
+
+### Chai
+
+Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework.
+
+You can choose interface that you’re the most comfortable with:
+
+![Chai](./images/readme2.png) <br/>
+
+### Sinon
+
+Test doubles library.
+
+Test doubles are objects that replace another objects for testing purposes. Just like actors are replaced by stunt doubles for dangerous action scenes.
+
+As Mocha itself doesn’t provide any test double library, we need Sinon (equivalent to Jasmine spies with some additions). In Sinon test doubles are divided into 3 categories:
+-	spies (to call the original function, track how many times it was called or what arguments were passed)
+-	stubs (same as spies but they replace the target function + they can return values, throw exceptions, call callback functions)
+-	mocks (when you would use a stub, but need to verify multiple more specific behaviors on it)
+
+### Sinon-Chai
+
+It just adds Chai syntax to Sinon assertions. Example:
+
+Instead of using Sinon's assertions:
+
+![sinon-chai1](./images/readme3.png) <br/>
+
+or awkwardly trying to use Chai's should or expect interfaces on spy properties:
+
+![sinon-chai2](./images/readme4.png) <br/>
+
+you can say:
+
+![sinon-chai3](./images/readme5.png) <br/>
+
+<br/>
+
+## Configuration
+
+### 1) Install dependencies
+
+One global dependency: karma-cli
+
++
+
+local:
+
+![dependency1](./images/dependency1.png)
+
+If we don’t install Karma locally, we’d need to specify explicitly in Karma config file what plugins do we use. It’s better to install Karma locally and let it find installed plugins by itself.
+
+<br/>
+
+![dependency2](./images/dependency2.png)
+
+Adapter - thanks to it we can specify in Karma config file (‘frameworks’ property) that Karma should use Mocha.
+
+<br/>
+
+![dependency3](./images/dependency3.png)
+
+It adds Chai, Sinon and sinon-chai to the mix. To use it, just put ‘sinon-chai’ in frameworks property of Karma config. And if we do so, we don’t need to put Sinon, Chai, sinon-chai separately.
+
+<br/>
+
+![dependency4](./images/dependency4.png)
+
+To enable Mocha style logging which is comfortable to read
+
+<br/>
+
+![dependency5](./images/dependency5.png)
+
+Use webpack to preprocess files in Karma
+
+<br/>
+
+![dependency6](./images/dependency6.png)
+
+To get source maps generated for test bundle
+
+<br/>
+
+![dependency7](./images/dependency7.png)
+
+Browser we want to perform tests with, e.g. PhantomJS. We need the browser itself and Karma launcher.
+
+<br/>
+
+### 2) Create Webpack context file to find our test files
+
+```tests.webpack.js```
+
+![context_file](./images/contextFile.png)<br/>
+
+Of course we can change search pattern to adapt it to our files structure.
+
+<br/>
+
+### 3) Create karma.conf.js file
+
+```karma.conf.js```
+
+![test_scripts](./images/karmaConf.png)<br/>
+
+<br/>
+
+### 4) Add test scripts to package.json
+
+![test_scripts](./images/testScripts.png)<br/>
+
+The first for one-time test running, second one for let Karma watch files.
+
+<br/> <br/> <br/>
+
+<sub><sup>
+sources:<br/>
+</sup></sub>
+<sub><sup>
+http://stackoverflow.com/questions/26032124/karma-vs-testing-framework-jasmine-mocha-qunit<br/>
+http://thejsguy.com/2015/01/12/jasmine-vs-mocha-chai-and-sinon.html<br/>
+https://scotch.io/tutorials/what-is-phantomjs-and-how-is-it-used<br/>
+https://mochajs.org<br/>
+http://chaijs.com/<br/>
+https://semaphoreci.com/community/tutorials/best-practices-for-spies-stubs-and-mocks-in-sinon-js<br/>
+http://krasimirtsonev.com/blog/article/a-modern-react-starter-pack-based-on-webpack
+</sup></sub>
