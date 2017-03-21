@@ -80,7 +80,7 @@ local:
 
 ![dependency1](./images/dependency1.png)
 
-If we don’t install Karma locally, we’d need to specify explicitly in Karma config file what plugins do we use. It’s better to install Karma locally and let it find installed plugins by itself.
+If we didn’t install Karma locally, we’d need to specify explicitly in Karma config file what plugins do we use. It’s better to install Karma locally and let it find installed plugins by itself.
 
 <br/>
 
