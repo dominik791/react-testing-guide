@@ -74,9 +74,9 @@ you can say:
 
 One global dependency: karma-cli
 
-+
+<br/>
 
-local:
+Local dependencies:
 
 ![dependency1](./images/dependency1.png)
 
