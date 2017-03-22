@@ -148,11 +148,9 @@ The first for one-time test running, second one for let Karma watch files.
 
 ## Usage - *how to* section
 
-### Mocha + Chai
+### Mocha
 
-#### Basic syntax
-
-Mocha gives us the ability to ```describe``` the features. The ```it``` is similar but we can only put the actual assertions / expectations within it
+Mocha gives us the ability to ```describe``` the features. The ```it``` is similar but we can put only the actual assertions / expectations within it
 
 ![usage1](./images/usage1.png)
 
@@ -184,6 +182,22 @@ This will pass:
 ![usage5](./images/usage5.png)
 
 <br/>
+
+While development you can omit some tests or execute only the particular one. Mocha gives you ```only()``` and ```skip()``` for this purpose:
+
+![usage6](./images/usage6.png)
+
+Use them instead of commenting tests that you want to skip. But remember to remove them before commit.
+
+
+### Chai
+
+Some examples:
+
+![usage7](./images/usage7.png)
+
+Study other examples here: http://chaijs.com/api/bdd/
+
 
 
 <br/> <br/> <br/>
