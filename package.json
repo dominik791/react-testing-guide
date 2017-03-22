@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "Guide how to configure Karma, Mocha, Chai, Sinon testing environment",
   "main": "lib/index.js",
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.15.3"
+  },
   "scripts": {
     "dev": "./node_modules/.bin/webpack --watch --inline",
     "build": "./node_modules/.bin/webpack --config=webpack.build.config.js",
