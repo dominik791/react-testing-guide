@@ -203,8 +203,8 @@ Study other examples here: http://chaijs.com/api/bdd/
 ### Sinon
 
 We use Sinon when our code calls a function that is dependent on the result of another function.
-This *another function* (e.g. XMLHttpRequest or mongodb.findOne) can be called dependency.
-Thanks to Sinon we are able to replace the problematic dependencies with test doubles.
+This *another function* (e.g. XMLHttpRequest or mongodb.findOne) can be called *dependency*.
+Thanks to Sinon we are able to replace the *problematic dependencies* with test doubles.
 
 Sinon provides three types of test doubles: Spies, Stubs and Mocks.
 Spies are the most basic, and Stubs are built on top of them so they just extend their functionality.
