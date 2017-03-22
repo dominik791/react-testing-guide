@@ -165,7 +165,7 @@ Mocha gives us the ability to ```describe``` the features. The ```it``` is simil
 
 While working with async code, we should pass callback to ```it()``` and when we're done with tests, invoke the callback:
 
-![usage3](./images/usage3.png)
+![usage3](./images/usagee3.png)
 
 <br/>
 
