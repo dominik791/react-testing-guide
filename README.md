@@ -198,6 +198,53 @@ Some examples:
 
 Study other examples here: http://chaijs.com/api/bdd/
 
+<br/>
+
+### Sinon
+
+We use Sinon when our code calls a function that is dependent on the result of another function.
+This *another function* (e.g. XMLHttpRequest or mongodb.findOne) can be called dependency.
+Thanks to Sinon we are able to replace the problematic dependencies with test doubles.
+
+Sinon provides three types of test doubles: Spies, Stubs and Mocks.
+Spies are the most basic, and Stubs are built on top of them so they just extend their functionality.
+Mock is a mix of the previous two.
+
+#### Spies
+
+They gather information about function calls (e.g. number of calls or arguments passed).
+Note that we invoke the original function and just spy it.
+
+When you're done, always invoke ```yourSpy.restore()```.
+
+![usage8](./images/usage8.png)
+
+#### Stubs
+
+Stubs have all the functionality of Spies, but they completely replace original function.
+
+Most common usages:
+
+1. Force function to throw an error in order to test error handling:
+
+![usage9](./images/usage9.png) <br/><br/>
+2. Force function to invoke callback immediately in order to test async code:
+
+![usage10](./images/usage10.png) <br/>
+
+#### Mocks
+
+Mocks replace the whole object so use it when you want to stub multiple methods.
+
+Two differences though:
+
+1. use assertions up front
+2. use ```yourMock.verify()``` at the end of of your test
+
+![usage11](./images/usage11.png) <br/>
+
+
+
 
 
 <br/> <br/> <br/>
@@ -213,5 +260,6 @@ https://mochajs.org<br/>
 http://chaijs.com/<br/>
 https://semaphoreci.com/community/tutorials/best-practices-for-spies-stubs-and-mocks-in-sinon-js<br/>
 http://krasimirtsonev.com/blog/article/a-modern-react-starter-pack-based-on-webpack<br/>
-http://staxmanade.com/2015/11/testing-asyncronous-code-with-mochajs-and-es7-async-await
+http://staxmanade.com/2015/11/testing-asyncronous-code-with-mochajs-and-es7-async-await<br/>
+https://www.sitepoint.com/sinon-tutorial-javascript-testing-mocks-spies-stubs
 </sup></sub>
