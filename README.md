@@ -120,9 +120,9 @@ Browser we want to perform tests with, e.g. PhantomJS. We need the browser itsel
 
 <br/>
 
-![dependency7](./images/dependency7.png)
+![dependency8](./images/dependency8.png)
 
-React test utilities
+If we use Phantom, we need babel-polyfill to use Promises
 
 <br/>
 

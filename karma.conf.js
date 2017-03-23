@@ -7,6 +7,7 @@ module.exports = function (config) {
     singleRun: true,
     frameworks: [ 'mocha', 'sinon-chai' ],
     files: [
+      'node_modules/babel-polyfill/dist/polyfill.js',
       'tests.webpack.js'
     ],
     preprocessors: {
