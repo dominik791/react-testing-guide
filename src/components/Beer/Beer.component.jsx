@@ -20,7 +20,7 @@ const Beer = ({ beer, currentBeerId, onBeerClick }) => {
 };
 
 Beer.propTypes = {
-  beer: Object,
+  beer: PropTypes.object,
   currentBeerId: PropTypes.number,
   onBeerClick: PropTypes.func
 };
