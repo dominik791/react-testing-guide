@@ -1,12 +1,15 @@
 import React from 'react';
+import ListOfBeersContainer from './containers/ListOfBeers/ListOfBeers.container';
 
-var Component = React.createClass({
+var App = React.createClass({
   render: function () {
     if (this.props.onRender) {
       this.props.onRender();
     }
     return (
-      <p>Hello world</p>
+      <div>
+        <ListOfBeersContainer />
+      </div>
     );
   },
   propTypes: {
@@ -14,4 +17,4 @@ var Component = React.createClass({
   }
 });
 
-export default Component;
+export default App;

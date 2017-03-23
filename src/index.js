@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Component from './Component';
+import App from './App';
 
 window.onload = () => {
   ReactDOM.render(
-    <Component />,
+    <App />,
     document.querySelector('#container')
   );
 };

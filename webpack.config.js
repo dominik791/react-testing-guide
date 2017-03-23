@@ -51,7 +51,7 @@ var config = {
 
 if (env === 'dev') {
   new WebpackDevServer(webpack(config), {
-    contentBase: './example',
+    contentBase: './public',
     hot: true,
     debug: true
   }).listen(port, host, function (err, result) {

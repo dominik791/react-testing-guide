@@ -120,6 +120,12 @@ Browser we want to perform tests with, e.g. PhantomJS. We need the browser itsel
 
 <br/>
 
+![dependency7](./images/dependency7.png)
+
+React test utilities
+
+<br/>
+
 ### 2) Create Webpack context file to find our test files
 
 ```tests.webpack.js```
@@ -243,9 +249,18 @@ Two differences though:
 
 ![usage11](./images/usage11.png) <br/>
 
+<br/>
 
+## Testing React
 
+Common options
 
+1. Testing against real DOM (should be used only for lowest-level components or at all)
+2. Testing against virtual DOM (more efficient, can be used to test every component)
+
+     a. using full DOM rendering (rendering all children components)
+
+     b. using shallow rendering (rendering only current component without children) - if you don't need children, use this option as it is the most efficient and children will not affect your test
 
 <br/> <br/> <br/>
 
@@ -261,5 +276,6 @@ http://chaijs.com/<br/>
 https://semaphoreci.com/community/tutorials/best-practices-for-spies-stubs-and-mocks-in-sinon-js<br/>
 http://krasimirtsonev.com/blog/article/a-modern-react-starter-pack-based-on-webpack<br/>
 http://staxmanade.com/2015/11/testing-asyncronous-code-with-mochajs-and-es7-async-await<br/>
-https://www.sitepoint.com/sinon-tutorial-javascript-testing-mocks-spies-stubs
+https://www.sitepoint.com/sinon-tutorial-javascript-testing-mocks-spies-stubs<br/>
+http://reactkungfu.com/2015/07/approaches-to-testing-react-components-an-overview
 </sup></sub>
