@@ -126,6 +126,12 @@ If we use Phantom, we need babel-polyfill to use Promises
 
 <br/>
 
+![dependency9](./images/dependency9.png)
+
+ReactTestUtils to render components, simulate events and more...
+
+<br/>
+
 ### 2) Create Webpack context file to find our test files
 
 ```tests.webpack.js```
@@ -214,7 +220,7 @@ Thanks to Sinon we are able to replace the *problematic dependencies* with test 
 
 Sinon provides three types of test doubles: Spies, Stubs and Mocks.
 Spies are the most basic, and Stubs are built on top of them so they just extend their functionality.
-Mock is a mix of the previous two.
+Mock is similar to Stub but you replace the whole object thanks to what you're able to stub multiple functions.
 
 #### Spies
 
