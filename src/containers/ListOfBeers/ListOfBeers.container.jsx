@@ -9,8 +9,14 @@ class ListOfBeersContainer extends Component {
     super();
     this.state = {
       beers: [],
-      fetchStatus: 0
+      fetchStatus: 0,
+      currentBeerId: 0
     };
+    this.handleBeerClick = this.handleBeerClick.bind(this);
+  }
+
+  handleBeerClick(beerId) {
+    this.setState({ currentBeerId: beerId });
   }
 
   componentDidMount() {
@@ -33,12 +39,13 @@ class ListOfBeersContainer extends Component {
       case 0:
         return <Loading />;
       case 1:
-        return <ListOfBeers beers={this.state.beers} />;
+        return <ListOfBeers beers={this.state.beers}
+                            currentBeerId={this.state.currentBeerId}
+                            onBeerClick={this.handleBeerClick} />;
       default:
         return <div>something went wrong...</div>;
     }
   }
-
 }
 
 export default ListOfBeersContainer;
