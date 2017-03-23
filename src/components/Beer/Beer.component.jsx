@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const Beer = ({ beer, currentBeerId, onBeerClick }) => {
 
@@ -17,6 +17,12 @@ const Beer = ({ beer, currentBeerId, onBeerClick }) => {
       <div>{beer.name}</div>
     </div>
   );
+};
+
+Beer.propTypes = {
+  beer: Object,
+  currentBeerId: PropTypes.number,
+  onBeerClick: PropTypes.func
 };
 
 export default Beer;

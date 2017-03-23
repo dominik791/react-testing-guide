@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Beer from '../Beer/Beer.component';
 
 const ListOfBeers = ({ beers, currentBeerId, onBeerClick }) => {
@@ -14,6 +14,12 @@ const ListOfBeers = ({ beers, currentBeerId, onBeerClick }) => {
       }
     </div>
   );
+};
+
+ListOfBeers.propTypes = {
+  beers: PropTypes.arrayOf(Object),
+  currentBeerId: PropTypes.number,
+  onBeerClick: PropTypes.func
 };
 
 export default ListOfBeers;
