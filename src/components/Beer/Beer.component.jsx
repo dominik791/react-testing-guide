@@ -6,7 +6,7 @@ const Beer = ({ beer }) => {
       <img src={beer.image_url} width={80} height={'auto'} />
       <div>{beer.name}</div>
     </div>
-  )
+  );
 };
 
 export default Beer;
