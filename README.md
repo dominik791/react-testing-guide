@@ -253,20 +253,57 @@ Two differences though:
 
 ## Testing React
 
-Common options
+### What should we test?
 
-1. Testing against real DOM (should be used only for lowest-level components or at all)
-2. Testing against virtual DOM (more efficient, can be used to test every component)
+While testing React components we have two main concerns to think about and test:
 
-     a. using full DOM rendering (rendering all children components)
+1. Given props and state, what structure our rendered tree will have?<br/>
+Strategy: render component with different props and check if resulted DOM structure is correct
 
-     b. using shallow rendering (rendering only current component without children) - if you don't need children, use this option as it is the most efficient and children will not affect your test
+2. Once component is already rendered, what are possibilities to transition from state A to state B?<br/>
+Strategy: simulate events and check how it affects existing DOM structure
+
+
+### Common techniques
+
+#### 1. Testing against real DOM
+
+Should be used only for lowest-level components or at all.
+
+![reactFullDOM](./images/reactRealDOM.png) <br/>
+
+<br/>
+
+If you're testing stateless functional components, you need to wrap your component in some real DOM element:
+
+![reactFullDOM](./images/reactRealDOM2.png) <br/>
+
+<br/>
+
+#### 2. Testing against virtual DOM
+
+More efficient, can be used to test any component.
+
+##### A. Using full DOM rendering
+
+...which means we're rendering all children components
+
+![reactVirtualDOM](./images/reactVirtualDOM.png) <br/>
+
+<br/>
+
+##### B. Using shallow rendering
+
+...which means we're rendering only current component excluding its children components. If you don't need children, use it! It is the most efficient and children will not affect your test.
+
+![reactVirtualDOM2](./images/reactVirtualDOM2.png) <br/>
+
+<br/>
 
 <br/> <br/> <br/>
 
-<sub><sup>
-sources:<br/>
-</sup></sub>
+
+###### sources:
 <sub><sup>
 http://stackoverflow.com/questions/26032124/karma-vs-testing-framework-jasmine-mocha-qunit<br/>
 http://thejsguy.com/2015/01/12/jasmine-vs-mocha-chai-and-sinon.html<br/>

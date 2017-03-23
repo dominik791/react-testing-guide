@@ -23,7 +23,7 @@ describe('Given an instance of Loading component', () => {
       expect(tagName).to.equal('DIV');
     });
 
-    it('should have loading text in inside', () => {
+    it('should have loading text inside', () => {
       let innerText = renderedDOM.children[0].innerText;
       expect(innerText).to.equal('loading');
     });
@@ -56,7 +56,7 @@ describe('Given an instance of Loading component', () => {
     });
   });
 
-  describe.only('when we test against virtual DOM using shallow rendering', () => {
+  describe('when we test against virtual DOM using shallow rendering', () => {
 
     let shallowRenderedComponent;
 
