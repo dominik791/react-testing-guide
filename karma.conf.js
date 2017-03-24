@@ -5,7 +5,7 @@ module.exports = function (config) {
   config.set({
     browsers: [ 'PhantomJS' ],
     singleRun: true,
-    frameworks: [ 'mocha', 'sinon-chai' ],
+    frameworks: [ 'mocha', 'chai-sinon' ],
     files: [
       'node_modules/babel-polyfill/dist/polyfill.js',
       'tests.webpack.js'
