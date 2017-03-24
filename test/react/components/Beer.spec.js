@@ -2,7 +2,7 @@ import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import Beer from '../../../src/components/Beer/Beer.component';
 
-describe.only('Given an instance of Beer component', () => {
+describe('Given an instance of Beer component', () => {
 
   const onBeerClick = () => {};
   const beer1 = { name: 'beer1', id: 1, image_url: 'aaa' };

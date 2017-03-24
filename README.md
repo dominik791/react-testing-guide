@@ -90,9 +90,17 @@ Adapter - thanks to it we can specify in Karma config file (‘frameworks’ pro
 
 <br/>
 
-![dependency3](./images/dependency3.png)
+![dependency3](./images/dependency3b.png)
 
-It adds Chai, Sinon and sinon-chai to the mix. To use it, just put ‘sinon-chai’ in frameworks property of Karma config. And if we do so, we don’t need to put Sinon, Chai, sinon-chai separately.
+![dependency3](./images/dependency3c.png)
+
+Chai and Sinon
+
+<br/>
+
+![dependency3](./images/dependency3a.png)
+
+It tells Karma to use Chai, Sinon and sinon-chai. Just put ‘chai-sinon’ in frameworks property of Karma config. And if we do so, we don’t need to put Sinon, Chai, sinon-chai separately.
 
 <br/>
 
@@ -300,11 +308,18 @@ More efficient, can be used to test any component.
 
 ##### B. Using shallow rendering
 
-...which means we're rendering only current component excluding its children components. If you don't need children, use it! It is the most efficient and children will not affect your test.
+...which means we're rendering only current component excluding its children components. If you don't need children and lifecycle hooks, use it! It is the most efficient and children will not affect your test.
 
 ![reactVirtualDOM2](./images/reactVirtualDOM2.png) <br/>
 
 <br/>
+
+### Example of stubbing async functions
+
+![async](./images/async.png) <br/>
+
+<br/>
+
 
 <br/> <br/> <br/>
 
@@ -320,5 +335,6 @@ https://semaphoreci.com/community/tutorials/best-practices-for-spies-stubs-and-m
 http://krasimirtsonev.com/blog/article/a-modern-react-starter-pack-based-on-webpack<br/>
 http://staxmanade.com/2015/11/testing-asyncronous-code-with-mochajs-and-es7-async-await<br/>
 https://www.sitepoint.com/sinon-tutorial-javascript-testing-mocks-spies-stubs<br/>
-http://reactkungfu.com/2015/07/approaches-to-testing-react-components-an-overview
+http://reactkungfu.com/2015/07/approaches-to-testing-react-components-an-overview<br/>
+http://reactcheatsheet.com
 </sup></sub>

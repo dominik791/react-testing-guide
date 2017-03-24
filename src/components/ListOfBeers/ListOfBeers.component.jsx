@@ -3,7 +3,7 @@ import Beer from '../Beer/Beer.component';
 
 const ListOfBeers = ({ beers, currentBeerId, onBeerClick }) => {
   return (
-    <div>
+    <div className='listOfBeers'>
       {
         beers.map((beer, index) =>
           <span key={index}>
