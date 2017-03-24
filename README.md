@@ -154,7 +154,7 @@ Of course we can change search pattern to adapt it to our files structure.
 
 ```karma.conf.js```
 
-![test_scripts](./images/karmaConf.png)<br/>
+![test_scripts](./images/karmaConfig.png)<br/>
 
 <br/>
 
