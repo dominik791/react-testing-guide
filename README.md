@@ -306,6 +306,10 @@ More efficient, can be used to test any component.
 
 <br/>
 
+Please note that `scryRenderedComponentsWithType()` or `findRenderedDOMComponentWithTag()` don't find stateless components.
+
+<br/>
+
 ##### B. Using shallow rendering
 
 ...which means we're rendering only current component excluding its children components. If you don't need children and lifecycle hooks, use it! It is the most efficient and children will not affect your test.
@@ -317,6 +321,12 @@ More efficient, can be used to test any component.
 ### Example of stubbing async functions
 
 ![async](./images/async.png) <br/>
+
+<br/>
+
+### Example of simulating events
+
+![events](./images/simulateEvent.png) <br/>
 
 <br/>
 
