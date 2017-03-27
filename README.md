@@ -250,7 +250,10 @@ Most common usages:
 ![usage9](./images/usage9.png) <br/><br/>
 2. Force function to invoke callback immediately in order to test async code:
 
-![usage10](./images/usage10.png) <br/>
+![usage10](./images/usage10.png) <br/><br/>
+3. Resolve/reject Promise immediately:
+
+![usage10](./images/usage10b.png) <br/>
 
 #### Mocks
 
