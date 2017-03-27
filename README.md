@@ -306,7 +306,7 @@ More efficient, can be used to test any component.
 
 <br/>
 
-Please note that `scryRenderedComponentsWithType()` or `findRenderedDOMComponentWithTag()` don't find stateless components.
+Please note that `scryRenderedComponentsWithType()` or `findRenderedDOMComponentWithTag()` don't find stateless functional components.
 
 <br/>
 
