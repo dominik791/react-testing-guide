@@ -282,8 +282,8 @@ Strategy: simulate events and check how it affects existing DOM structure
 
 There are three ways of rendering available:
 
-1. Shallow rendering (`shallow(<Component />)`) - it lets us render our component without touching the DOM. It also let us test our component as a unit, since it renders our component only one-level deep. Errors in children components wouldn’t propagate to top level components, making our tests more isolated and reliable. Equivalent to `TestUtils.createRenderer`.
-
+1. Shallow rendering (`shallow(<Component />)`) - it lets us render our component without touching the DOM. It also enables us test our component as a unit, since it renders our component only one-level deep. Errors in children components wouldn’t propagate to top level components, making our tests more isolated and reliable. Equivalent to `TestUtils.createRenderer`.<br/><br/>
+![enzyme1](./images/enzyme1.png) <br/><br/>
 2. Full DOM rendering (`mount(<Component />`) - to enable interaction with real DOM, access to child components or to lifecycle methods
 
 3. Static rendering (`render(<Component />`) - it is used to render react components to static HTML and analyze the resulting HTML structure (used mainly when you don't run tests in browser's environment)
