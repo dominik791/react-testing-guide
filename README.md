@@ -78,7 +78,7 @@ One global dependency: karma-cli
 
 Local dependencies:
 
-![dependency1](./images/dependency1.png)
+![dependency1](./images/dependency.png)
 
 If we didn’t install Karma locally, we’d need to specify explicitly in Karma config file what plugins do we use. It’s better to install Karma locally and let it find installed plugins by itself.
 
@@ -94,7 +94,9 @@ Adapter - thanks to it we can specify in Karma config file (‘frameworks’ pro
 
 ![dependency3](./images/dependency3c.png)
 
-Chai and Sinon
+![dependency3](./images/dependency3d.png)
+
+Chai, Sinon, sinon-chai
 
 <br/>
 
