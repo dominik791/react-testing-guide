@@ -126,6 +126,12 @@ If we use Phantom, we need babel-polyfill to use Promises
 
 <br/>
 
+![dependency9](./images/dependency9.png)
+
+Enzyme - JavaScript Testing utility for React
+
+<br/>
+
 ### 2) Create Webpack context file to find our test files
 
 ```tests.webpack.js```
@@ -140,7 +146,7 @@ Of course we can change search pattern to adapt it to our files structure.
 
 ```karma.conf.js```
 
-![test_scripts](./images/karmaConf.png)<br/>
+![test_scripts](./images/karma-config.png)<br/>
 
 <br/>
 
@@ -251,16 +257,30 @@ Two differences though:
 
 <br/>
 
-## Testing React
+## Testing React with Enzyme
 
-Common options
+### React - what should we test?
 
-1. Testing against real DOM (should be used only for lowest-level components or at all)
-2. Testing against virtual DOM (more efficient, can be used to test every component)
+While testing React components we have two main concerns to think about and test:
 
-     a. using full DOM rendering (rendering all children components)
+1. Given props and state, what structure our rendered tree will have?<br/>
+Strategy: render component with different props and check if resulted DOM structure is correct
+2. Once component is already rendered, what are possibilities to transition from state A to state B?<br/>
+Strategy: simulate events and check how it affects existing DOM structure
 
-     b. using shallow rendering (rendering only current component without children) - if you don't need children, use this option as it is the most efficient and children will not affect your test
+### Enzyme rendering methods
+
+There are three ways of rendering available:
+
+1. Shallow rendering (`shallow(<Component />)`) - it lets us render our component without touching the DOM. It also let us test our component as a unit, since it renders our component only one-level deep. Errors in children components wouldn’t propagate to top level components, making our tests more isolated and reliable. Equivalent to `TestUtils.createRenderer`.
+
+2. Full DOM rendering (`mount(<Component />`) - to enable interaction with real DOM, access to child components or to lifecycle methods
+
+3. Static rendering (`render(<Component />`) - it is used to render react components to static HTML and analyze the resulting HTML structure (used mainly when you don't run tests in browser's environment)
+
+
+Whenever possible, use shallow rendering as it ensures the best testing efficiency and isolate tests from child components.
+
 
 <br/> <br/> <br/>
 
@@ -277,5 +297,8 @@ https://semaphoreci.com/community/tutorials/best-practices-for-spies-stubs-and-m
 http://krasimirtsonev.com/blog/article/a-modern-react-starter-pack-based-on-webpack<br/>
 http://staxmanade.com/2015/11/testing-asyncronous-code-with-mochajs-and-es7-async-await<br/>
 https://www.sitepoint.com/sinon-tutorial-javascript-testing-mocks-spies-stubs<br/>
-http://reactkungfu.com/2015/07/approaches-to-testing-react-components-an-overview
+http://reactkungfu.com/2015/07/approaches-to-testing-react-components-an-overview<br/>
+http://codeheaven.io/testing-react-components-with-enzyme/<br/>
+http://airbnb.io/enzyme/
+
 </sup></sub>
