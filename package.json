@@ -38,7 +38,7 @@
     "mocha": "^2.3.4",
     "phantomjs": "^1.9.19",
     "react": "15.2.0",
-    "react-addons-test-utils": "15.2.0",
+    "react-addons-test-utils": "^15.2.0",
     "react-dom": "15.2.0",
     "sinon": "^2.1.0",
     "sinon-chai": "^2.8.0",

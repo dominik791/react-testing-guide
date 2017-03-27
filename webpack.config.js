@@ -50,7 +50,13 @@ var config = {
     root: path.resolve('./src'),
     extensions: ['', '.js', '.jsx']
   },
-  plugins: plugins
+  plugins: plugins,
+  externals: {
+    'cheerio': 'window',
+    'react/addons': true,
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': true
+  }
 };
 
 if (env === 'dev') {

@@ -132,7 +132,17 @@ Enzyme - JavaScript Testing utility for React
 
 <br/>
 
-### 2) Create Webpack context file to find our test files
+![dependency10](./images/dependency10.png)
+
+ReactTestUtils - as Enzyme needs it
+
+<br/>
+
+### 2) Add `externals` property to your `webpack.config`
+
+![externals](./images/externals.png)<br/>
+
+### 3) Create Webpack context file to find our test files
 
 ```tests.webpack.js```
 
@@ -142,15 +152,15 @@ Of course we can change search pattern to adapt it to our files structure.
 
 <br/>
 
-### 3) Create karma.conf.js file
+### 4) Create karma.conf.js file
 
 ```karma.conf.js```
 
-![test_scripts](./images/karma-config.png)<br/>
+![test_scripts](./images/karmaConf.png)<br/>
 
 <br/>
 
-### 4) Add test scripts to package.json
+### 5) Add test scripts to package.json
 
 ![test_scripts](./images/testScripts.png)<br/>
 
