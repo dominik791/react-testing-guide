@@ -307,7 +307,13 @@ More here: http://airbnb.io/enzyme/docs/api/mount.html <br/><br/>
 
 #### Stub async functions
 
-![enzyme6](./images/enzyme6.png) <br/><br/>
+![enzyme6](./images/enzyme6b.png) <br/><br/>
+
+#### Simulate events
+
+![enzyme7](./images/enzyme7.png) <br/><br/><br/>
+
+to see more examples please visit `test/react` directory
 
 <br/> <br/> <br/>
 
