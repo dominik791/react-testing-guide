@@ -140,7 +140,7 @@ ReactTestUtils - as Enzyme needs it
 
 ### 2) Add `externals` property to your `webpack.config`
 
-![externals](./images/externals.png)<br/>
+![externals](./images/externals2.png)<br/>
 
 ### 3) Create Webpack context file to find our test files
 
@@ -283,13 +283,25 @@ Strategy: simulate events and check how it affects existing DOM structure
 There are three ways of rendering available:
 
 1. Shallow rendering (`shallow(<Component />)`) - it lets us render our component without touching the DOM. It also enables us test our component as a unit, since it renders our component only one-level deep. Errors in children components wouldn’t propagate to top level components, making our tests more isolated and reliable. Equivalent to `TestUtils.createRenderer`.<br/><br/>
-![enzyme1](./images/enzyme1.png) <br/><br/>
-2. Full DOM rendering (`mount(<Component />`) - to enable interaction with real DOM, access to child components or to lifecycle methods
+![enzyme1](./images/enzyme1.png)<br/><br/>
+More here: http://airbnb.io/enzyme/docs/api/shallow.html<br/><br/>
+2. Full DOM rendering (`mount(<Component />`) - to enable interaction with real DOM, access to child components or to lifecycle methods<br/><br/>
+Lifecycle hooks:<br/><br/>
+![enzyme2](./images/enzyme2.png)<br/><br/>
+Child components:<br/><br/>
+![enzyme3](./images/enzyme3.png) <br/><br/>
+Using DOM Web API:<br/><br/>
+![enzyme4](./images/enzyme4.png) <br/><br/>
+More here: http://airbnb.io/enzyme/docs/api/mount.html <br/><br/>
+3. Static rendering (`render(<Component />`) - it is used to render react components to static HTML and analyze the resulting HTML structure. It renders all child components but you don't have access to component lifecycle, children behaviour - just result of `render()`. <br/><br/>
+![enzyme5](./images/enzyme5.png) <br/><br/>
+`render()` uses third-party library *Cherio* to parse and traverse HTML so you should refer to [its documentation](https://cheerio.js.org/).
 
-3. Static rendering (`render(<Component />`) - it is used to render react components to static HTML and analyze the resulting HTML structure (used mainly when you don't run tests in browser's environment)
-
-
-Whenever possible, use shallow rendering as it ensures the best testing efficiency and isolate tests from child components.
+##### General rules of thumb:
+* Always begin with `shallow()`
+* If componentDidMount or componentDidUpdate should be tested, use `mount()`
+* If you want to test component lifecycle and children behavior, use `mount()`
+* If you want to test children rendering with less overhead than mount and you are not interested in lifecycle methods, use `render()`
 
 
 <br/> <br/> <br/>
@@ -309,6 +321,8 @@ http://staxmanade.com/2015/11/testing-asyncronous-code-with-mochajs-and-es7-asyn
 https://www.sitepoint.com/sinon-tutorial-javascript-testing-mocks-spies-stubs<br/>
 http://reactkungfu.com/2015/07/approaches-to-testing-react-components-an-overview<br/>
 http://codeheaven.io/testing-react-components-with-enzyme/<br/>
-http://airbnb.io/enzyme/
+http://airbnb.io/enzyme/<br/>
+https://cheerio.js.org/<br/>
+https://github.com/airbnb/enzyme/issues/465
 
 </sup></sub>

@@ -12,7 +12,7 @@ const Beer = ({ beer, currentBeerId, onBeerClick }) => {
   };
 
   return (
-    <div style={beerStyle} onClick={() => onBeerClick(beer.id)}>
+    <div style={beerStyle} onClick={() => onBeerClick(beer.id)} className='Beer'>
       <img src={beer.image_url} width={80} height={'auto'} />
       <div>{beer.name}</div>
     </div>
