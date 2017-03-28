@@ -303,6 +303,11 @@ More here: http://airbnb.io/enzyme/docs/api/mount.html <br/><br/>
 * If you want to test component lifecycle and children behavior, use `mount()`
 * If you want to test children rendering with less overhead than mount and you are not interested in lifecycle methods, use `render()`
 
+### Examples
+
+#### Stub async functions
+
+![enzyme6](./images/enzyme6.png) <br/><br/>
 
 <br/> <br/> <br/>
 
