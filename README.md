@@ -1,10 +1,41 @@
-# Configuring testing environment (React, Webpack, Karma, Mocha, Chai, Sinon)
+# react-testing-guide (React, Webpack, Karma, Mocha, Chai, Sinon)
 
 The aim of the repository is to provide clear guide of how to configure testing environment with stack listed above and how to use it with React. Repo is based on [react-webpack-starter](https://github.com/krasimir/react-webpack-starter)
 
-## Overview - *what is* section
+## Table of contents
 
-### Karma
+- [Overview - *what is* section](#overview)
+	- [Karma](#what-is-karma)
+	- [Mocha](#what-is-mocha)
+	- [Chai](#what-is-chai)
+	- [Sinon](#what-is-sinon)
+	- [Sinon-Chai](#what-is-sinon-chai)
+- [Configuration](#configuration)
+	- [Dependencies](#1-install-dependencies)
+	- [Context file](#2-context-file)
+	- [Karma config](#3-karma-config)
+	- [npm scripts](#4-npm-scripts)
+- [Usage - *how to* section](#usage)
+	- [Mocha](#mocha)
+	- [Chai](#chai)
+	- [Sinon](#sinon)
+		- [Spies](#spies)
+		- [Stubs](#stubs)
+		- [Mocks](#mocks)
+- [Testing React](#testing-react)
+	- [What should we test?](#what-should-we-test)
+	- [Common techniques](#common-techniques)
+		- [1. Testing against real DOM](#1-testing-against-real-dom)
+		- [2. Testing against virtual DOM](#2-testing-against-virtual-dom)
+			- [A. Using full DOM rendering](#a-using-full-dom-rendering)
+			- [B. Using shallow rendering](#b-using-shallow-rendering)
+	- [Example of stubbing async functions](#example-of-stubbing-async-functions)
+	- [Example of simulating events](#example-of-simulating-events)
+
+
+## Overview
+
+### What is Karma?
 
 Browser test runner. What Karma does is (roughly):
 
@@ -23,7 +54,9 @@ Looking at each part :
 4.  Karma can launch the page in many browsers (FF, Chrome, or headless browsers like PhantomJs.)
 5.  Reporting to karma is, again, framework-dependant, and dealt with karma plugins.
 
-### Mocha
+[To the top](#table-of-contents)
+
+### What is Mocha?
 
 BDD (Behaviour Driven Development) test framework:
 
@@ -31,7 +64,9 @@ BDD (Behaviour Driven Development) test framework:
 
 Mocha doesn’t have any built-in assertion library like: Chai, should.js, expect.js etc. Common choice (and ours :) ) is Chai. You can use Mocha to run tests with Node environment. But using it with Karma enables you to run tests with different browser engines like Chrome, FF, PhantomJS (web browser without a graphical user interface).
 
-### Chai
+[To the top](#table-of-contents)
+
+### What is Chai?
 
 Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework.
 
@@ -39,7 +74,9 @@ You can choose interface that you’re the most comfortable with:
 
 ![Chai](./images/readme2.png) <br/>
 
-### Sinon
+[To the top](#table-of-contents)
+
+### What is Sinon?
 
 Test doubles library.
 
@@ -50,7 +87,9 @@ As Mocha itself doesn’t provide any test double library, we need Sinon (equiva
 -	stubs (same as spies but they replace the target function + they can return values, throw exceptions, call callback functions immediately)
 -	mocks (when you would use a stub, but need to verify multiple more specific behaviors on it)
 
-### Sinon-Chai
+[To the top](#table-of-contents)
+
+### What is Sinon-Chai?
 
 It just adds Chai syntax to Sinon assertions. Example:
 
@@ -67,6 +106,8 @@ you can say:
 ![sinon-chai3](./images/readme5.png) <br/>
 
 <br/>
+
+[To the top](#table-of-contents)
 
 ## Configuration
 
@@ -142,7 +183,11 @@ ReactTestUtils to render components, simulate events and more...
 
 <br/>
 
-### 2) Create Webpack context file to find our test files
+[To the top](#table-of-contents)
+
+### 2) Context file
+
+Create Webpack context file to find our test files
 
 ```tests.webpack.js```
 
@@ -152,7 +197,11 @@ Of course we can change search pattern to adapt it to our files structure.
 
 <br/>
 
-### 3) Create karma.conf.js file
+[To the top](#table-of-contents)
+
+### 3) Karma config
+
+Create karma.conf.js file
 
 ```karma.conf.js```
 
@@ -160,7 +209,11 @@ Of course we can change search pattern to adapt it to our files structure.
 
 <br/>
 
-### 4) Add test scripts to package.json
+[To the top](#table-of-contents)
+
+### 4) npm scripts
+
+Add npm scripts to `package.json`
 
 ![test_scripts](./images/testScripts.png)<br/>
 
@@ -168,7 +221,9 @@ The first for one-time test running, second one for let Karma watch files.
 
 <br/>
 
-## Usage - *how to* section
+[To the top](#table-of-contents)
+
+## Usage
 
 ### Mocha
 
@@ -211,6 +266,7 @@ While development you can omit some tests or execute only the particular one. Mo
 
 Use them instead of commenting tests that you want to skip. But remember to remove them before commit.
 
+[To the top](#table-of-contents)
 
 ### Chai
 
@@ -222,6 +278,8 @@ Study other examples here: http://chaijs.com/api/bdd/
 
 <br/>
 
+[To the top](#table-of-contents)
+
 ### Sinon
 
 We use Sinon when our code calls a function that is dependent on the result of another function.
@@ -232,6 +290,8 @@ Sinon provides three types of test doubles: Spies, Stubs and Mocks.
 Spies are the most basic, and Stubs are built on top of them so they just extend their functionality.
 Mock is similar to Stub but you replace the whole object thanks to what you're able to stub multiple functions.
 
+[To the top](#table-of-contents)
+
 #### Spies
 
 They gather information about function calls (e.g. number of calls or arguments passed).
@@ -240,6 +300,8 @@ Note that we invoke the original function and just spy it.
 When you're done, always invoke ```yourSpy.restore()```.
 
 ![usage8](./images/usage8.png)
+
+[To the top](#table-of-contents)
 
 #### Stubs
 
@@ -257,6 +319,8 @@ Most common usages:
 
 ![usage10](./images/usage10b.png) <br/>
 
+[To the top](#table-of-contents)
+
 #### Mocks
 
 Mocks replace the whole object so use it when you want to stub multiple methods.
@@ -270,6 +334,8 @@ Two differences though:
 
 <br/>
 
+[To the top](#table-of-contents)
+
 ## Testing React
 
 ### What should we test?
@@ -282,6 +348,7 @@ Strategy: render component with different props and check if resulted DOM struct
 2. Once component is already rendered, what are possibilities to transition from state A to state B?<br/>
 Strategy: simulate events and check how it affects existing DOM structure
 
+[To the top](#table-of-contents)
 
 ### Common techniques
 
@@ -298,6 +365,8 @@ If you're testing stateless functional components, you need to wrap your compone
 ![reactFullDOM](./images/reactRealDOM2.png) <br/>
 
 <br/>
+
+[To the top](#table-of-contents)
 
 #### 2. Testing against virtual DOM
 
@@ -323,11 +392,15 @@ Please note that `scryRenderedComponentsWithType()` or `findRenderedDOMComponent
 
 <br/>
 
+[To the top](#table-of-contents)
+
 ### Example of stubbing async functions
 
 ![async](./images/async.png) <br/>
 
 <br/>
+
+[To the top](#table-of-contents)
 
 ### Example of simulating events
 
@@ -335,6 +408,7 @@ Please note that `scryRenderedComponentsWithType()` or `findRenderedDOMComponent
 
 <br/>
 
+[To the top](#table-of-contents)
 
 <br/> <br/> <br/>
 
