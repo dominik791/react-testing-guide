@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Beer from '../../src/components/Beer/Beer.component';
 
-describe.only('<Beer />', () => {
+describe('<Beer />', () => {
 
   const beer1 = { name: 'beer1', id: 1, image_url: 'aaa' };
   const func = () => {};
