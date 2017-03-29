@@ -8,10 +8,9 @@ describe('testing async', () => {
   });
 
   // and this is ok
-  it('put done() callback when you are done with test', function (done) {
+  it('put done() callback when you are done with test', function () {
     setTimeout(function () {
       console.log('Test');
-      done();
     }, 200);
   });
 
