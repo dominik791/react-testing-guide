@@ -47,7 +47,7 @@ Test doubles are objects that replace another objects for testing purposes. Just
 
 As Mocha itself doesn’t provide any test double library, we need Sinon (equivalent to Jasmine spies with some additions). In Sinon test doubles are divided into 3 categories:
 -	spies (to call the original function, track how many times it was called or what arguments were passed)
--	stubs (same as spies but they replace the target function + they can return values, throw exceptions, call callback functions)
+-	stubs (same as spies but they replace the target function + they can return values, throw exceptions, call callback functions immediately)
 -	mocks (when you would use a stub, but need to verify multiple more specific behaviors on it)
 
 ### Sinon-Chai
@@ -90,9 +90,9 @@ Adapter - thanks to it we can specify in Karma config file (‘frameworks’ pro
 
 <br/>
 
-![dependency3](./images/dependency3.png)
+![dependency3](./images/dependency3b.png)
 
-It adds Chai, Sinon and sinon-chai to the mix. To use it, just put ‘sinon-chai’ in frameworks property of Karma config. And if we do so, we don’t need to put Sinon, Chai, sinon-chai separately.
+It tells Karma to use Chai, Sinon and sinon-chai. To do so, just put ‘chai-sinon’ in frameworks property of Karma config. And if we do so, we don’t need to put Sinon, Chai, sinon-chai separately.
 
 <br/>
 
@@ -104,7 +104,7 @@ To enable Mocha style logging which is comfortable to read
 
 ![dependency5](./images/dependency5.png)
 
-Use webpack to preprocess files in Karma
+To use webpack and preprocess files in Karma
 
 <br/>
 
@@ -134,7 +134,7 @@ Enzyme - JavaScript Testing utility for React
 
 ![dependency10](./images/dependency10.png)
 
-ReactTestUtils - as Enzyme needs it
+ReactTestUtils - Enzyme needs it
 
 <br/>
 
@@ -146,7 +146,7 @@ ReactTestUtils - as Enzyme needs it
 
 ```tests.webpack.js```
 
-![context_file](./images/contextFile.png)<br/>
+![context_file](./images/context.png)<br/>
 
 Of course we can change search pattern to adapt it to our files structure.
 
@@ -201,7 +201,7 @@ All hooks may be async as well, but we need to pass and invoke callback. So befo
 
 This will pass:
 
-![usage5](./images/usage5.png)
+![usage5](./images/usagee5.png)
 
 <br/>
 
@@ -282,14 +282,14 @@ Strategy: simulate events and check how it affects existing DOM structure
 
 There are three ways of rendering available:
 
-1. Shallow rendering (`shallow(<Component />)`) - it lets us render our component without touching the DOM. It also enables us test our component as a unit, since it renders our component only one-level deep. Errors in children components wouldn’t propagate to top level components, making our tests more isolated and reliable. Equivalent to `TestUtils.createRenderer`.<br/><br/>
+1. Shallow rendering (`shallow(<Component />)`) - it lets us render our component without touching the DOM. It also enables us to test a component as a unit, since it renders it only one-level deep. Errors in children components wouldn’t propagate to top level components, making our tests more isolated and reliable.<br/><br/>
 ![enzyme1](./images/enzyme1.png)<br/><br/>
 More here: http://airbnb.io/enzyme/docs/api/shallow.html<br/><br/>
 2. Full DOM rendering (`mount(<Component />`) - to enable interaction with real DOM, access to child components or to lifecycle methods<br/><br/>
 Lifecycle hooks:<br/><br/>
 ![enzyme2](./images/enzyme2.png)<br/><br/>
 Child components:<br/><br/>
-![enzyme3](./images/enzyme3.png) <br/><br/>
+![enzyme3](./images/enzyme3b.png) <br/><br/>
 Using DOM Web API:<br/><br/>
 ![enzyme4](./images/enzyme4.png) <br/><br/>
 More here: http://airbnb.io/enzyme/docs/api/mount.html <br/><br/>
@@ -303,7 +303,7 @@ More here: http://airbnb.io/enzyme/docs/api/mount.html <br/><br/>
 * If you want to test component lifecycle and children behavior, use `mount()`
 * If you want to test children rendering with less overhead than mount and you are not interested in lifecycle methods, use `render()`
 
-### Examples
+### Other examples
 
 #### Stub async functions
 

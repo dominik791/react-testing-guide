@@ -14,6 +14,14 @@ describe('<ListOfBeers />', () => {
       expect(nbOfBeers).to.equal(2);
     });
 
+    it('shows access to child components', () => {
+      const beers = [{ id: 1, name: 'beer1', image_url: 'aaa' }];
+      const component = mount(<ListOfBeers beers={beers} currentBeerId={1} onBeerClick={() => {}} />);
+      const beer = component.find(Beer);
+      const beerImg = beer.find('img');
+      expect(beerImg.prop('src')).to.equal('aaa');
+    });
+
   });
 
   describe('when you use render()', () => {
