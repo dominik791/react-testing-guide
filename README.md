@@ -1,10 +1,43 @@
-# Configuring testing environment (React, Webpack, Karma, Mocha, Chai, Sinon)
+# react-testing-guide (React, Webpack, Karma, Mocha, Chai, Sinon)
 
 The aim of the repository is to provide clear guide of how to configure testing environment with stack listed above and how to use it with React. Repo is based on [react-webpack-starter](https://github.com/krasimir/react-webpack-starter)
 
-## Overview - *what is* section
 
-### Karma
+## Table of contents
+- [Overview - *what is* section](#overview)
+	- [Karma](#what-is-karma)
+	- [Mocha](#what-is-mocha)
+	- [Chai](#what-is-chai)
+	- [Sinon](#what-is-sinon)
+	- [Sinon-Chai](#what-is-sinon-chai)
+- [Configuration](#configuration)
+	- [Dependencies](#1-install-dependencies)
+	- [Externals](#2-externals)
+	- [Context file](#3-context-file)
+	- [Karma config](#4-karma-config)
+	- [npm scripts](#5-npm-scripts)
+- [Usage - *how to* section](#usage)
+	- [Mocha](#mocha)
+	- [Chai](#chai)
+	- [Sinon](#sinon)
+		- [Spies](#spies)
+		- [Stubs](#stubs)
+		- [Mocks](#mocks)
+- [Testing React](#testing-react-with-enzyme)
+	- [What should we test?](#what-should-we-test)
+	- [Enzyme rendering methods](#enzyme-rendering-methods)
+	    - [Shallow rendering](#shallow-rendering)
+	    - [Full DOM rendering](#full-dom-rendering)
+	    - [Static rendering](#static-rendering)
+	    - [Rules of thumb](#general-rules-of-thumb)
+	- [Other examples](#other-examples)
+	    - [Stub async functions](#stub-async-functions)
+	    - [Simulate events](#simulate-events)
+
+
+## Overview
+
+### What is Karma?
 
 Browser test runner. What Karma does is (roughly):
 
@@ -23,7 +56,9 @@ Looking at each part :
 4.  Karma can launch the page in many browsers (FF, Chrome, or headless browsers like PhantomJs.)
 5.  Reporting to karma is, again, framework-dependant, and dealt with karma plugins.
 
-### Mocha
+[To the top](#table-of-contents)
+
+### What is Mocha?
 
 BDD (Behaviour Driven Development) test framework:
 
@@ -31,7 +66,9 @@ BDD (Behaviour Driven Development) test framework:
 
 Mocha doesn’t have any built-in assertion library like: Chai, should.js, expect.js etc. Common choice (and ours :) ) is Chai. You can use Mocha to run tests with Node environment. But using it with Karma enables you to run tests with different browser engines like Chrome, FF, PhantomJS (web browser without a graphical user interface).
 
-### Chai
+[To the top](#table-of-contents)
+
+### What is Chai?
 
 Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework.
 
@@ -39,7 +76,9 @@ You can choose interface that you’re the most comfortable with:
 
 ![Chai](./images/readme2.png) <br/>
 
-### Sinon
+[To the top](#table-of-contents)
+
+### What is Sinon?
 
 Test doubles library.
 
@@ -50,7 +89,9 @@ As Mocha itself doesn’t provide any test double library, we need Sinon (equiva
 -	stubs (same as spies but they replace the target function + they can return values, throw exceptions, call callback functions immediately)
 -	mocks (when you would use a stub, but need to verify multiple more specific behaviors on it)
 
-### Sinon-Chai
+[To the top](#table-of-contents)
+
+### What is Sinon-Chai?
 
 It just adds Chai syntax to Sinon assertions. Example:
 
@@ -67,6 +108,8 @@ you can say:
 ![sinon-chai3](./images/readme5.png) <br/>
 
 <br/>
+
+[To the top](#table-of-contents)
 
 ## Configuration
 
@@ -138,11 +181,19 @@ ReactTestUtils - Enzyme needs it
 
 <br/>
 
-### 2) Add `externals` property to your `webpack.config`
+[To the top](#table-of-contents)
+
+### 2) Externals
+
+Add `externals` property to your `webpack.config`
 
 ![externals](./images/externals2.png)<br/>
 
-### 3) Create Webpack context file to find our test files
+[To the top](#table-of-contents)
+
+### 3) Context file
+
+Create Webpack context file to find our test files
 
 ```tests.webpack.js```
 
@@ -152,7 +203,11 @@ Of course we can change search pattern to adapt it to our files structure.
 
 <br/>
 
-### 4) Create karma.conf.js file
+[To the top](#table-of-contents)
+
+### 4) Karma config
+
+Create `karma.conf.js` file
 
 ```karma.conf.js```
 
@@ -160,7 +215,11 @@ Of course we can change search pattern to adapt it to our files structure.
 
 <br/>
 
-### 5) Add test scripts to package.json
+[To the top](#table-of-contents)
+
+### 5) npm scripts
+
+Add npm scripts to `package.json`
 
 ![test_scripts](./images/testScripts.png)<br/>
 
@@ -168,7 +227,9 @@ The first for one-time test running, second one for let Karma watch files.
 
 <br/>
 
-## Usage - *how to* section
+[To the top](#table-of-contents)
+
+## Usage
 
 ### Mocha
 
@@ -211,6 +272,7 @@ While development you can omit some tests or execute only the particular one. Mo
 
 Use them instead of commenting tests that you want to skip. But remember to remove them before commit.
 
+[To the top](#table-of-contents)
 
 ### Chai
 
@@ -222,6 +284,8 @@ Study other examples here: http://chaijs.com/api/bdd/
 
 <br/>
 
+[To the top](#table-of-contents)
+
 ### Sinon
 
 We use Sinon when our code calls a function that is dependent on the result of another function.
@@ -232,6 +296,8 @@ Sinon provides three types of test doubles: Spies, Stubs and Mocks.
 Spies are the most basic, and Stubs are built on top of them so they just extend their functionality.
 Mock is a mix of the previous two.
 
+[To the top](#table-of-contents)
+
 #### Spies
 
 They gather information about function calls (e.g. number of calls or arguments passed).
@@ -240,6 +306,8 @@ Note that we invoke the original function and just spy it.
 When you're done, always invoke ```yourSpy.restore()```.
 
 ![usage8](./images/usage8.png)
+
+[To the top](#table-of-contents)
 
 #### Stubs
 
@@ -254,6 +322,8 @@ Most common usages:
 
 ![usage10](./images/usage10.png) <br/>
 
+[To the top](#table-of-contents)
+
 #### Mocks
 
 Mocks replace the whole object so use it when you want to stub multiple methods.
@@ -267,9 +337,11 @@ Two differences though:
 
 <br/>
 
+[To the top](#table-of-contents)
+
 ## Testing React with Enzyme
 
-### React - what should we test?
+### What should we test?
 
 While testing React components we have two main concerns to think about and test:
 
@@ -278,14 +350,27 @@ Strategy: render component with different props and check if resulted DOM struct
 2. Once component is already rendered, what are possibilities to transition from state A to state B?<br/>
 Strategy: simulate events and check how it affects existing DOM structure
 
+[To the top](#table-of-contents)
+
 ### Enzyme rendering methods
 
-There are three ways of rendering available:
+There are three ways of rendering available: shallow rendering, full DOM rendering and static rendering.
 
-1. Shallow rendering (`shallow(<Component />)`) - it lets us render our component without touching the DOM. It also enables us to test a component as a unit, since it renders it only one-level deep. Errors in children components wouldn’t propagate to top level components, making our tests more isolated and reliable.<br/><br/>
+#### Shallow rendering
+
+`shallow(<Component />)`
+
+ It lets us render our component without touching the DOM. It also enables us to test a component as a unit, since it renders it only one-level deep. Errors in children components wouldn’t propagate to top level components, making our tests more isolated and reliable.<br/><br/>
 ![enzyme1](./images/enzyme1.png)<br/><br/>
 More here: http://airbnb.io/enzyme/docs/api/shallow.html<br/><br/>
-2. Full DOM rendering (`mount(<Component />`) - to enable interaction with real DOM, access to child components or to lifecycle methods<br/><br/>
+
+[To the top](#table-of-contents)
+
+#### Full DOM rendering
+
+`mount(<Component />`
+
+It enables interaction with real DOM, access to child components or to lifecycle methods<br/><br/>
 Lifecycle hooks:<br/><br/>
 ![enzyme2](./images/enzyme2.png)<br/><br/>
 Child components:<br/><br/>
@@ -293,9 +378,18 @@ Child components:<br/><br/>
 Using DOM Web API:<br/><br/>
 ![enzyme4](./images/enzyme4.png) <br/><br/>
 More here: http://airbnb.io/enzyme/docs/api/mount.html <br/><br/>
-3. Static rendering (`render(<Component />`) - it is used to render react components to static HTML and analyze the resulting HTML structure. It renders all child components but you don't have access to component lifecycle, children behaviour - just result of `render()`. <br/><br/>
+
+[To the top](#table-of-contents)
+
+#### Static rendering
+
+`render(<Component />`
+
+It is used to render react components to static HTML and analyze the resulting HTML structure. It renders all child components but you don't have access to component lifecycle, children behaviour - just result of `render()`. <br/><br/>
 ![enzyme5](./images/enzyme5.png) <br/><br/>
 `render()` uses third-party library *Cherio* to parse and traverse HTML so you should refer to [its documentation](https://cheerio.js.org/).
+
+[To the top](#table-of-contents)
 
 ##### General rules of thumb:
 * Always begin with `shallow()`
@@ -303,19 +397,27 @@ More here: http://airbnb.io/enzyme/docs/api/mount.html <br/><br/>
 * If you want to test component lifecycle and children behavior, use `mount()`
 * If you want to test children rendering with less overhead than mount and you are not interested in lifecycle methods, use `render()`
 
+[To the top](#table-of-contents)
+
 ### Other examples
 
 #### Stub async functions
 
 ![enzyme6](./images/enzyme6b.png) <br/><br/>
 
+[To the top](#table-of-contents)
+
 #### Simulate events
 
 ![enzyme7](./images/enzyme7.png) <br/><br/><br/>
 
-to see more examples please visit `test/react` directory
+[To the top](#table-of-contents)
 
-<br/> <br/> <br/>
+<br/><br/>
+
+<b>to see more examples please visit `test/react` directory</b>
+
+<br/><br/>
 
 <sub><sup>
 sources:<br/>
