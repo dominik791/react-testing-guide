@@ -47,7 +47,7 @@ Test doubles are objects that replace another objects for testing purposes. Just
 
 As Mocha itself doesn’t provide any test double library, we need Sinon (equivalent to Jasmine spies with some additions). In Sinon test doubles are divided into 3 categories:
 -	spies (to call the original function, track how many times it was called or what arguments were passed)
--	stubs (same as spies but they replace the target function + they can return values, throw exceptions, call callback functions)
+-	stubs (same as spies but they replace the target function + they can return values, throw exceptions, call callback functions immediately)
 -	mocks (when you would use a stub, but need to verify multiple more specific behaviors on it)
 
 ### Sinon-Chai
@@ -102,7 +102,7 @@ Chai, Sinon, sinon-chai
 
 ![dependency3](./images/dependency3a.png)
 
-It tells Karma to use Chai, Sinon and sinon-chai. Just put ‘chai-sinon’ in frameworks property of Karma config. And if we do so, we don’t need to put Sinon, Chai, sinon-chai separately.
+It tells Karma to use Chai, Sinon and sinon-chai. To do so, just put ‘chai-sinon’ in frameworks property of Karma config. And if we do so, we don’t need to put Sinon, Chai, sinon-chai separately.
 
 <br/>
 
@@ -114,7 +114,7 @@ To enable Mocha style logging which is comfortable to read
 
 ![dependency5](./images/dependency5.png)
 
-Use webpack to preprocess files in Karma
+To use webpack and preprocess files in Karma
 
 <br/>
 
@@ -146,7 +146,7 @@ ReactTestUtils to render components, simulate events and more...
 
 ```tests.webpack.js```
 
-![context_file](./images/contextFile.png)<br/>
+![context_file](./images/context.png)<br/>
 
 Of course we can change search pattern to adapt it to our files structure.
 
@@ -201,7 +201,7 @@ All hooks may be async as well, but we need to pass and invoke callback. So befo
 
 This will pass:
 
-![usage5](./images/usage5.png)
+![usage5](./images/usagee5.png)
 
 <br/>
 

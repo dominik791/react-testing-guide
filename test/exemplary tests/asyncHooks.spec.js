@@ -10,9 +10,8 @@ describe('using async hooks', () => {
   });
 
   describe('testing find', () => {
-    it('should add elem', (done) => {
+    it('should add elem', () => {
       expect(arr).to.have.length(1);
-      done();
     });
   });
 
