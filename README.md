@@ -133,6 +133,14 @@ Adapter - thanks to it we can specify in Karma config file (‘frameworks’ pro
 
 <br/>
 
+![dependency11](./images/dependency11.png)
+
+![dependency12](./images/dependency12.png)
+
+Chai, Sinon, sinon-chai
+
+<br/>
+
 ![dependency3](./images/dependency3b.png)
 
 It tells Karma to use Chai, Sinon and sinon-chai. To do so, just put ‘chai-sinon’ in frameworks property of Karma config. And if we do so, we don’t need to put Sinon, Chai, sinon-chai separately.
