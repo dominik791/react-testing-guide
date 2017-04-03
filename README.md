@@ -302,7 +302,7 @@ Thanks to Sinon we are able to replace the *problematic dependencies* with test 
 
 Sinon provides three types of test doubles: Spies, Stubs and Mocks.
 Spies are the most basic, and Stubs are built on top of them so they just extend their functionality.
-Mock is a mix of the previous two.
+Mock is similar to Stub but you replace the whole object thanks to what you're able to stub multiple functions.
 
 [To the top](#table-of-contents)
 
